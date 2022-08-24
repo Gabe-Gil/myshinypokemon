@@ -1,0 +1,43 @@
+{% extends "shinydb/base.html" %}
+{% load load_image %}
+{% block content %}
+    {% load load_image %}
+        <center>
+            <main role="main" class="container">
+                <div>
+                    {% if messages %}
+                            <div class="alert alert-{{ message.tags }} mt-3">
+                                {{ message.first }}
+                             </div>
+                    {% endif %}
+                </div>
+            </main>
+            <div class="box mt-5" style="width: 30%; display: flex; flex-wrap: wrap;">
+                <container class="container">
+                    <div style="display: flex; align-items: center;" class="ml-3">
+                        <img src="{{ object.species|cache_image_url }}" alt="Shiny Pokemon Sprite" class="mr-5">
+                        <div class="ml-3 mt-2" style="display: inline;">
+                            <h1>{{ object.nickname }}</h1>
+                            <h4 class="text-muted">({{ object.species }})</h4>
+                        </div>
+                    </div>
+                </container> 
+                <container class="container">
+                    <div>
+                        <h2 class="mt-4">{{ object.attempts }} {{ object.method }}</h2>
+                    </div>
+                </container>
+                <container class="container">
+                    <div>
+                        <h2 class="mt-4">{{ object.date_caught }}</h2>
+                    </div>
+                </container>
+                <container class="container">
+                    <div class="form-group mt-4">
+                        <a class="mr-5" href="{% url 'shiny-main' %}"><button class="btn btn-outline-info" type="submit">Global Shinies</button></a>
+                        <a class="ml-5" href="{% url 'shiny-user' user.username %}"><button class="btn btn-outline-info" type="submit">Your Shinies</button></a>
+                    </div>
+                </container>
+            </div class="container box">
+        </center>
+{% endblock content %}
