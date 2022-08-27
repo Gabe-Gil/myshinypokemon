@@ -5,6 +5,7 @@ This website allows users to create, read, update, and delete shiny pokemon into
 ## Built With
 
 * [Django](https://www.djangoproject.com/) - Web framework used.
+* [SQLite](https://www.sqlite.org/index.html) - Database used.
 
 ## License
 
